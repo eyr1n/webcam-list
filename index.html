@@ -14,6 +14,7 @@
         const res = document.querySelector("#res");
 
         btn.addEventListener("click", async () => {
+            await navigator.mediaDevices.getUserMedia({ video: true })
             const devices = await navigator.mediaDevices.enumerateDevices();
             res.innerText = JSON.stringify(devices, undefined, 2);
         })
