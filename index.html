@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>webcam list</title>
+</head>
+
+<body>
+    <button type="button" id="btn">get webcam list</button>
+    <pre id="res"></pre>
+    <script>
+        const btn = document.querySelector("#btn");
+        const res = document.querySelector("#res");
+
+        btn.addEventListener("click", async () => {
+            const devices = await navigator.mediaDevices.enumerateDevices();
+            res.innerText = JSON.stringify(devices, undefined, 2);
+        })
+    </script>
+</body>
+
+</html>
